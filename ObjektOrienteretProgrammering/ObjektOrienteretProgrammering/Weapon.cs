@@ -8,5 +8,19 @@ namespace ObjektOrienteretProgrammering
 {
     internal class Weapon
     {
+        private int ammo;
+        private string name;
+
+        public Weapon(int ammo, string name)
+        {
+            this.ammo = ammo;
+            this.name = name;
+        }
+
+        public Weapon()
+        {
+            this.ammo = 30;
+            this.name = "AK47";
+        }
     }
 }

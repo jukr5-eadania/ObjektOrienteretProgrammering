@@ -14,7 +14,7 @@ namespace ObjektOrienteretProgrammering
         private int energy;
         private float speed;
         private string name;
-        private Weapon weapon;
+        private Weapon myWeapon;
         private int x = 0;
         private int y = 0;
 
@@ -70,6 +70,19 @@ namespace ObjektOrienteretProgrammering
             {
                 return health <= 0;
             }
+        }
+
+        public Soldier()
+        {
+            myWeapon = new Weapon();
+            Console.WriteLine("Soldier created");
+        }
+
+        public Soldier(string name)
+        {
+            this.name = name;
+            myWeapon = new Weapon();
+            Console.WriteLine("Soldier created");
         }
 
         public void Jump()
