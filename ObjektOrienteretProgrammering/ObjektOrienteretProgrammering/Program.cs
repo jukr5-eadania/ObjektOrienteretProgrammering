@@ -13,6 +13,12 @@ namespace ObjektOrienteretProgrammering
             Soldier mySoldier = new Soldier();
 
             Console.WriteLine(mySoldier.health);
+
+            mySoldier.Jump();
+            mySoldier.Shoot();
+            mySoldier.Move();
+
+            Console.ReadLine();
         }
     }
 }

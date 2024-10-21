@@ -14,5 +14,20 @@ namespace ObjektOrienteretProgrammering
         private float speed;
         private string name;
         private Weapon weapon;
+
+        public void Jump()
+        {
+            Console.WriteLine("I'm jumping");
+        }
+
+        public void Shoot()
+        {
+            Console.WriteLine("I'm shooting");
+        }
+
+        public void Move()
+        {
+            Console.WriteLine("I'm moving");
+        }
     }
 }
