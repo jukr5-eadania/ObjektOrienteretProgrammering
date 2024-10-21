@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace ObjektOrienteretProgrammering
 {
     internal class Soldier
     {
-        public int health = 100;
+        private int health;
         private int armor;
         private int energy;
         private float speed;
@@ -16,6 +17,52 @@ namespace ObjektOrienteretProgrammering
         private Weapon weapon;
         private int x = 0;
         private int y = 0;
+
+        public int Health
+        {
+            get { return health; }
+            set
+            {
+                if (value >= 0)
+                {
+                    health = value;
+                }
+            }
+        }
+
+        public int Armor
+        {
+            get { return armor; }
+            set
+            {
+                if (value <= 100)
+                {
+                    armor = value;
+                }
+            }
+        }
+
+        public int Energy
+        {
+            get { return energy; }
+        }
+
+        public float Speed
+        {
+            get { return speed; }
+            set
+            {
+                if (value >= 0)
+                {
+                    speed = value;
+                }
+            }
+        }
+
+        public string Name
+        {
+            get { return name; }
+        }
 
         public void Jump()
         {
