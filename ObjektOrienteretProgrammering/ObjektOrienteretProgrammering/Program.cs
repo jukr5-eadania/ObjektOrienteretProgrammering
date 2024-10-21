@@ -38,6 +38,12 @@ namespace ObjektOrienteretProgrammering
             mySoldier.Shoot();
             mySoldier.Move();
 
+            mySoldier.Health -= 50;
+            if (mySoldier.IsAlive == true)
+            {
+                Console.WriteLine("I'm Dead");
+            }
+
             Console.ReadLine();
         }
     }

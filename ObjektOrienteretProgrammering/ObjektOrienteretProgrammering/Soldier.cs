@@ -64,6 +64,14 @@ namespace ObjektOrienteretProgrammering
             get { return name; }
         }
 
+        public bool IsAlive
+        {
+            get
+            {
+                return health <= 0;
+            }
+        }
+
         public void Jump()
         {
             Console.WriteLine("I'm jumping");
