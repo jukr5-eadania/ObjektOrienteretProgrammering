@@ -10,6 +10,9 @@ namespace ObjektOrienteretProgrammering
     {
         static void Main(string[] args)
         {
+            Soldier mySoldier = new Soldier();
+
+            Console.WriteLine(mySoldier.health);
         }
     }
 }
