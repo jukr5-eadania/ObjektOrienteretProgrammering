@@ -21,6 +21,7 @@ namespace OOP_D2
         {
             for (int i = 0; i < scores.Length; i++)
             {
+                Console.Write(i + 1 + ". ");
                 Console.Write(scores[i].Name);
                 Console.Write(" ");
                 Console.Write(scores[i].Points);
