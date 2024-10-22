@@ -37,5 +37,9 @@ namespace OOP_D27
             Console.WriteLine($"i am a Parrot. My name is {name}");
         }
 
+        public override void Sleep()
+        {
+            Console.WriteLine("I am a parrot and i am sleeping");
+        }
     }
 }

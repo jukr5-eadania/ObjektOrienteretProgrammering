@@ -19,5 +19,10 @@ namespace OOP_D27
         {
             Console.WriteLine("I am a tiger and i am eating");
         }
+
+        public override void Sleep()
+        {
+            Console.WriteLine("I am a tiger and i am sleeping");
+        }
     }
 }

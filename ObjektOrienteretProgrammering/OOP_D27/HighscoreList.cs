@@ -23,6 +23,8 @@ namespace OOP_D2
             else
             {
                 Array.Resize(ref scores, scores.Length * 2);
+                Scores[x] = score;
+                x++;
             }
         }
 
@@ -30,11 +32,15 @@ namespace OOP_D2
         {
             for (int i = 0; i < scores.Length; i++)
             {
-                Console.Write(i + 1 + ". ");
-                Console.Write(scores[i].Name);
-                Console.Write(" ");
-                Console.Write(scores[i].Points);
-                Console.WriteLine();
+                if (scores[i] != null)
+                {
+                    Console.Write(i + 1 + ". ");
+                    Console.Write(scores[i].Name);
+                    Console.Write(" ");
+                    Console.Write(scores[i].Points);
+                    Console.WriteLine();
+                }
+       
             }
         }
     }

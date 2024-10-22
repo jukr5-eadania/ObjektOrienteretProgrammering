@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_D27
 {
-    internal class Animal
+    abstract class Animal
     {
         protected string name;
         protected int health;
@@ -25,5 +25,7 @@ namespace OOP_D27
         {
             Console.WriteLine("I am an animal and i am eating");
         }
+
+        public abstract void Sleep();
     }
 }
