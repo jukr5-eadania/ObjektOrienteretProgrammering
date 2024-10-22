@@ -19,5 +19,6 @@ namespace OOP_D2
             this.Name = name;
             this.Points = points;
         }
+
     }
 }
