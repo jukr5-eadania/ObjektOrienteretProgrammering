@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_D1", "ObjektOrienteretP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_D2", "OOP_D27\OOP_D2.csproj", "{CEFCEE2D-4253-4146-9EF5-59BC11F0147B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_D3", "OOP_D3\OOP_D3.csproj", "{3579701E-5064-4E03-A8F0-A75E72369855}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CEFCEE2D-4253-4146-9EF5-59BC11F0147B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEFCEE2D-4253-4146-9EF5-59BC11F0147B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEFCEE2D-4253-4146-9EF5-59BC11F0147B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3579701E-5064-4E03-A8F0-A75E72369855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3579701E-5064-4E03-A8F0-A75E72369855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3579701E-5064-4E03-A8F0-A75E72369855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3579701E-5064-4E03-A8F0-A75E72369855}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
