@@ -65,7 +65,7 @@ namespace OOP_D3
 
             if (words.Contains(word))
             {
-                Console.WriteLine("You guessed correct");
+                Console.WriteLine($"You guessed correct {word} is now removed");
                 words.Remove(word);
             }
 
