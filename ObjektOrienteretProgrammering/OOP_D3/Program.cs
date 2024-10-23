@@ -102,10 +102,13 @@ namespace OOP_D3
             peopleLL.AddLast(Kronii);
             peopleLL.AddAfter(peopleLL.Find(Kronii), Pekora);
 
+            Console.WriteLine("LinkedList:");
             foreach (var item in peopleLL)
             {
                 Console.WriteLine(item.Name);
             }
+
+
 
             Console.ReadLine();
         }
