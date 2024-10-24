@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,40 @@ namespace OOP_D4
                     (animal as IFlyable).Fly();
 
                 }
+            }
+
+            int[] myArray = new int[3];
+
+            try
+            {
+                myArray[10] = 7;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Index out of range");
+            }
+
+            try
+            {
+                myArray[10] = 7;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+            try
+            {
+                string txt = File.ReadAllText("Hej.txt");
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found");
+            }
+            finally
+            {
+                Console.WriteLine("Finally this happens");
             }
 
             Console.ReadLine();
