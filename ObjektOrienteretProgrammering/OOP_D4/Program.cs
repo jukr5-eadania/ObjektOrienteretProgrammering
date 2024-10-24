@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathLib;
 
 namespace OOP_D4
 {
@@ -55,6 +56,12 @@ namespace OOP_D4
             {
                 Console.WriteLine("Finally this happens");
             }
+
+            MathLib.Math math = new MathLib.Math();
+
+            math.Addition();
+            math.Subraction();
+            math.Division();
 
             Console.ReadLine();
         }
