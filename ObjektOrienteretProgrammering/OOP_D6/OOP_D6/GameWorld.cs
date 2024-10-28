@@ -10,6 +10,7 @@ namespace OOP_D6
         private SpriteBatch _spriteBatch;
         private Texture2D spriteRacoon;
         private Rectangle rectangle;
+        private int speed = 2;
 
         public GameWorld()
         {
@@ -40,7 +41,7 @@ namespace OOP_D6
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            rectangle.Y += speed;
 
             base.Update(gameTime);
         }
