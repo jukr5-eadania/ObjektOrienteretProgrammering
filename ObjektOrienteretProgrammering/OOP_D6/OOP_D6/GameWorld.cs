@@ -16,6 +16,11 @@ namespace OOP_D6
         int rndImg;
         private SpriteFont animalFont;
         private int animal;
+        private int racoon;
+        private int bat;
+        private int chameleon;
+        private int fox;
+        private int snake;
 
         public GameWorld()
         {
@@ -57,13 +62,35 @@ namespace OOP_D6
 
             if (rectangle.Y > _graphics.PreferredBackBufferHeight)
             {
-                rndImg = rnd.Next(0, 5);
                 int rndX = rnd.Next(1, _graphics.PreferredBackBufferWidth);
                 rectangle.Y = -200;
                 rectangle.X = rndX;
                 rectangle.Height = sprite[0].Height * 5;
                 rectangle.Width = sprite[0].Width * 5;
                 animal++;
+                switch (rndImg)
+                {
+                    case 0:
+                        racoon++;
+                        break;
+
+                    case 1:
+                        bat++;
+                        break;
+
+                    case 2:
+                        chameleon++;
+                        break;
+
+                    case 3:
+                        fox++;
+                        break;
+
+                    case 4:
+                        snake++;
+                        break;
+                }
+                rndImg = rnd.Next(0, 5);
             }
 
             base.Update(gameTime);
@@ -77,6 +104,11 @@ namespace OOP_D6
 
             _spriteBatch.Draw(sprite[rndImg], rectangle, Color.White);
             _spriteBatch.DrawString(animalFont, "Animals: " + animal, Vector2.Zero, Color.Black);
+            _spriteBatch.DrawString(animalFont, "Racoons: " + racoon, new Vector2(0,15), Color.Black);
+            _spriteBatch.DrawString(animalFont, "Bats: " + bat, new Vector2(0, 30), Color.Black);
+            _spriteBatch.DrawString(animalFont, "Chameleons: " + chameleon, new Vector2(0, 45), Color.Black);
+            _spriteBatch.DrawString(animalFont, "Foxes: " + fox, new Vector2(0, 60), Color.Black);
+            _spriteBatch.DrawString(animalFont, "Snakes: " + snake, new Vector2(0, 75), Color.Black);
 
             _spriteBatch.End();
 
