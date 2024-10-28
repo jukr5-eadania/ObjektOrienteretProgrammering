@@ -10,7 +10,7 @@ namespace OOP_D6
         private SpriteBatch _spriteBatch;
         private Texture2D spriteRacoon;
         private Rectangle rectangle;
-        private int speed = 2;
+        private int speed = 3;
 
         public GameWorld()
         {
@@ -32,7 +32,7 @@ namespace OOP_D6
 
             spriteRacoon = Content.Load<Texture2D>("tile_racoon");
 
-            rectangle = new Rectangle(0, 0, spriteRacoon.Width * 10, spriteRacoon.Height * 10);
+            rectangle = new Rectangle(0, -200, spriteRacoon.Width * 10, spriteRacoon.Height * 10);
 
         }
 
@@ -42,6 +42,10 @@ namespace OOP_D6
                 Exit();
 
             rectangle.Y += speed;
+            if (rectangle.Y == 500)
+            {
+                rectangle.Y = -200;
+            }
 
             base.Update(gameTime);
         }
