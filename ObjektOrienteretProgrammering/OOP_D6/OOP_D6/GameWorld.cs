@@ -8,6 +8,8 @@ namespace OOP_D6
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private Texture2D spriteRacoon;
+        private Rectangle rectangle;
 
         public GameWorld()
         {
@@ -27,7 +29,10 @@ namespace OOP_D6
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            spriteRacoon = Content.Load<Texture2D>("tile_racoon");
+
+            rectangle = new Rectangle(0, 0, spriteRacoon.Width * 10, spriteRacoon.Height * 10);
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -44,7 +49,11 @@ namespace OOP_D6
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
+            _spriteBatch.Draw(spriteRacoon, rectangle, Color.White);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
