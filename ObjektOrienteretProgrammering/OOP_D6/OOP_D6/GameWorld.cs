@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace OOP_D6
 {
@@ -11,6 +12,7 @@ namespace OOP_D6
         private Texture2D spriteRacoon;
         private Rectangle rectangle;
         private int speed = 3;
+        Random rnd = new Random();
 
         public GameWorld()
         {
@@ -42,9 +44,11 @@ namespace OOP_D6
                 Exit();
 
             rectangle.Y += speed;
-            if (rectangle.Y == 500)
+            if (rectangle.Y > _graphics.PreferredBackBufferHeight)
             {
+                int rndX = rnd.Next(1, _graphics.PreferredBackBufferWidth);
                 rectangle.Y = -200;
+                rectangle.X = rndX;
             }
 
             base.Update(gameTime);
