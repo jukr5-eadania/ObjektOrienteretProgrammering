@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace OOP_D7
 {
@@ -8,6 +9,7 @@ namespace OOP_D7
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private List<GameObject> gameObjects = new List<GameObject>();
 
         public GameWorld()
         {
@@ -19,7 +21,7 @@ namespace OOP_D7
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            gameObjects.Add(new GameObject());
             base.Initialize();
         }
 
@@ -27,7 +29,11 @@ namespace OOP_D7
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            foreach (GameObject gameObject in gameObjects)
+            {
+                gameObject.LoadContent(Content);
+            }
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -44,7 +50,14 @@ namespace OOP_D7
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
+            foreach (GameObject gameObject in gameObjects)
+            {
+                gameObject.Draw(_spriteBatch);
+            }
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
