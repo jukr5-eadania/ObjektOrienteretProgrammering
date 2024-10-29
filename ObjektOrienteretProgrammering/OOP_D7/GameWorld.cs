@@ -21,7 +21,7 @@ namespace OOP_D7
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            gameObjects.Add(new GameObject());
+            gameObjects.Add(new Player());
             base.Initialize();
         }
 
@@ -41,7 +41,10 @@ namespace OOP_D7
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            foreach (GameObject gameObject in gameObjects)
+            {
+                gameObject.Update(gameTime);
+            }
 
             base.Update(gameTime);
         }
