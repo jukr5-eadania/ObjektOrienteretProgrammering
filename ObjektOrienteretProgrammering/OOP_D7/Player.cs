@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SharpDX.Direct3D9;
 using System;
@@ -14,11 +16,12 @@ namespace OOP_D7
         private float speed = 1000;
         private Vector2 velocity;
 
-        public override void Update(GameTime gametime)
+        public override void Update(GameTime gameTime)
         {
             HandleInput();
-            Move(gametime);
+            Move(gameTime);
             ScreenBounds();
+            Animate(gameTime);
         }
 
         public void HandleInput()
@@ -53,9 +56,9 @@ namespace OOP_D7
             }
         }
 
-        public void Move(GameTime gametime)
+        public void Move(GameTime gameTime)
         {
-            float deltaTime = (float)gametime.ElapsedGameTime.TotalSeconds;
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             position += ((velocity * speed) * deltaTime);
         }
 
@@ -77,6 +80,16 @@ namespace OOP_D7
             {
                 position.X = GameWorld.Width;
             }
+        }
+
+        public override void LoadContent(ContentManager content)
+        {
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i] = content.Load<Texture2D>($"Sprites\\PlayerAnimation\\PlayerNormal\\Forward\\{i + 1}fwd");
+            }
+
+            sprite = sprites[0];
         }
     }
 }
