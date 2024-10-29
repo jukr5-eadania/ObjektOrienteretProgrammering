@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib", "MathLib\MathLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoList.csproj", "{CA32F5CC-1058-4842-A523-4493FDE951B8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP_D6", "OOP_D6\OOP_D6\OOP_D6.csproj", "{DFFBE212-BD5D-4073-B20E-F6E0664052DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{CA32F5CC-1058-4842-A523-4493FDE951B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA32F5CC-1058-4842-A523-4493FDE951B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA32F5CC-1058-4842-A523-4493FDE951B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFFBE212-BD5D-4073-B20E-F6E0664052DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFFBE212-BD5D-4073-B20E-F6E0664052DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFFBE212-BD5D-4073-B20E-F6E0664052DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFFBE212-BD5D-4073-B20E-F6E0664052DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
