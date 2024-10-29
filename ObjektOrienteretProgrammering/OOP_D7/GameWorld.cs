@@ -10,6 +10,8 @@ namespace OOP_D7
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private List<GameObject> gameObjects = new List<GameObject>();
+        public static int Height { get; set; }
+        public static int Width { get; set; }
 
         public GameWorld()
         {
@@ -20,7 +22,8 @@ namespace OOP_D7
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            GameWorld.Height = _graphics.PreferredBackBufferHeight;
+            GameWorld.Width = _graphics.PreferredBackBufferWidth;
             gameObjects.Add(new Player());
             base.Initialize();
         }
@@ -53,7 +56,7 @@ namespace OOP_D7
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            _spriteBatch.Begin();
 
             foreach (GameObject gameObject in gameObjects)
             {
