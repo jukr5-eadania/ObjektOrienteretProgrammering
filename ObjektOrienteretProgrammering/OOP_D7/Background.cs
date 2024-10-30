@@ -7,8 +7,11 @@ namespace OOP_D7
 {
     internal class Background : GameObject
     {
-        public Background()
+        private int number;
+
+        public Background(int number)
         {
+            this.number = number;
             velocity = new Vector2(0, 1);
             speed = 100;
         }
@@ -16,17 +19,26 @@ namespace OOP_D7
         public override void LoadContent(ContentManager content)
         {
             sprite = content.Load<Texture2D>("Backgrounds/darkPurple");
-            position = new Vector2(GameWorld.Width / 2, GameWorld.Height / 2);
+            position = new Vector2(0, sprite.Height * (float)-7.5 * number);
         }
 
         public override void Draw(SpriteBatch spritebatch)
         {
-            spritebatch.Draw(sprite, position, null, Color.White, 0, new Vector2(sprite.Width / 2, sprite.Height / 2), (float) 7.5, SpriteEffects.None, 1);
+            spritebatch.Draw(sprite, position, null, Color.White, 0, new Vector2(0, 0), (float) 7.6, SpriteEffects.None, 1);
+        }
+
+        private void Respawn()
+        {
+            if (position.Y >= sprite.Height * 7.5)
+            {
+                position = new Vector2(0, sprite.Height * (float)-7.5);
+            }
         }
 
         public override void Update(GameTime gameTime)
         {
             Move(gameTime);
+            Respawn();
         }
     }
 }

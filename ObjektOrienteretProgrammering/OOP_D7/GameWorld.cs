@@ -27,8 +27,8 @@ namespace OOP_D7
         {
             GameWorld.Height = _graphics.PreferredBackBufferHeight;
             GameWorld.Width = _graphics.PreferredBackBufferWidth;
-            gameObjects.Add(new Background());
-            gameObjects.Add(new Background());
+            gameObjects.Add(new Background(0));
+            gameObjects.Add(new Background(1));
             gameObjects.Add(new Player());
             gameObjects.Add(new Enemy());
             base.Initialize();
@@ -82,10 +82,13 @@ namespace OOP_D7
             foreach (GameObject go in gameObjects)
             {
                 go.Draw(_spriteBatch);
-                #if DEBUG
-                DrawCollisionBox(go);
-                #endif
+#if DEBUG
+                if (!(go is Background))
+                {
 
+                    DrawCollisionBox(go);
+                }
+#endif
             }
 
             _spriteBatch.End();
