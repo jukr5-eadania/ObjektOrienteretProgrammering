@@ -13,27 +13,29 @@ namespace OOP_D7
 
         public Enemy()
         {
-            speed = rnd.Next(100, 201);
+            speed = rnd.Next(150, 251);
             velocity = new Vector2(0, 1);
         }
 
         public override void LoadContent(ContentManager content)
         {
-            spriteIndex = rnd.Next(0, enemySprites.Length);
-
-            position = new Vector2(rnd.Next(0, GameWorld.Width), 0);
-
             sprite = content.Load<Texture2D>($"Sprites/Enemies/{enemySprites[spriteIndex]}");          
         }
 
         public override void Update(GameTime gameTime)
         {
             Move(gameTime);
+            Respawn();
         }
 
         public void Respawn()
         {
-            
+            if (position.Y > GameWorld.Height + sprite.Height)
+            {
+                speed = rnd.Next(150, 251);
+                position = new Vector2(rnd.Next(0, GameWorld.Width), -sprite.Height * 2);
+                spriteIndex = rnd.Next(0, enemySprites.Length);
+            }
         }
     }
 }
