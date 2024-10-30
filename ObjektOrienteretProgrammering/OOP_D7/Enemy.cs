@@ -14,6 +14,7 @@ namespace OOP_D7
         public Enemy()
         {
             speed = rnd.Next(150, 251);
+            position = new Vector2(rnd.Next(0, GameWorld.Width), -250);
             velocity = new Vector2(0, 1);
         }
 
