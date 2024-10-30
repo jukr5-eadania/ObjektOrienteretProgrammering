@@ -31,7 +31,7 @@ namespace OOP_D7
 
         public abstract void Update(GameTime gameTime);
 
-        public void Draw(SpriteBatch spritebatch)
+        public virtual void Draw(SpriteBatch spritebatch)
         {
             spritebatch.Draw(sprite, position, null, Color.White, 0, new Vector2(sprite.Width / 2, sprite.Height / 2), 1, SpriteEffects.None, 1);
         }

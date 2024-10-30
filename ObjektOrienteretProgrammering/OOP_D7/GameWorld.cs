@@ -27,9 +27,10 @@ namespace OOP_D7
         {
             GameWorld.Height = _graphics.PreferredBackBufferHeight;
             GameWorld.Width = _graphics.PreferredBackBufferWidth;
+            gameObjects.Add(new Background());
+            gameObjects.Add(new Background());
             gameObjects.Add(new Player());
             gameObjects.Add(new Enemy());
-            gameObjects.Add(new Background());
             base.Initialize();
         }
 
