@@ -62,15 +62,15 @@ namespace OOP_D7
             {
                 position.Y = 0;
             }
-            if (position.Y > GameWorld.Height - playerSprite.Height)
+            if (position.Y > GameWorld.Height - sprite.Height)
             {
-                position.Y = GameWorld.Height - playerSprite.Height;
+                position.Y = GameWorld.Height - sprite.Height;
             }
             if (position.X > GameWorld.Width)
             {
-                position.X = -playerSprite.Width;
+                position.X = -sprite.Width;
             }
-            if (position.X < -playerSprite.Width)
+            if (position.X < -sprite.Width)
             {
                 position.X = GameWorld.Width;
             }
@@ -78,12 +78,14 @@ namespace OOP_D7
 
         public override void LoadContent(ContentManager content)
         {
-            for (int i = 0; i < playerSprites.Length; i++)
+            for (int i = 0; i < sprites.Length; i++)
             {
-                playerSprites[i] = content.Load<Texture2D>($"Sprites\\PlayerAnimation\\PlayerNormal\\Forward\\{i + 1}fwd");
+                sprites[i] = content.Load<Texture2D>($"Sprites\\PlayerAnimation\\PlayerNormal\\Forward\\{i + 1}fwd");
             }
 
-            playerSprite = playerSprites[0];
+            sprite = sprites[0];
+
+            position = new Vector2(GameWorld.Width / 2, GameWorld.Height);
         }
     }
 }
