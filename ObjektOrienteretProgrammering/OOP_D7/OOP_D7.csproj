@@ -13,6 +13,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content\1fwd.png" />
+    <None Remove="Content\pixel.png" />
     <None Remove="Content\Sounds\kenvector_future.ttf" />
     <None Remove="Content\Sounds\kenvector_future_thin.ttf" />
   </ItemGroup>

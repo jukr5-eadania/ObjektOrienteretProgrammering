@@ -14,6 +14,18 @@ namespace OOP_D7
         protected Vector2 velocity;
         private float timeElapsed;
         private int currentIndex;
+        public Rectangle CollisionBox
+        {
+            get
+            {
+                return new Rectangle(
+                    (int)(position.X - sprite.Width / 2),
+                    (int)(position.Y - sprite.Height / 2),
+                    (int)sprite.Width,
+                    (int)sprite.Height
+                );
+            }
+        }
 
         public abstract void LoadContent(ContentManager content);
 
@@ -44,6 +56,27 @@ namespace OOP_D7
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             position += ((velocity * speed) * deltaTime);
         }
+
+        public bool IsColliding(GameObject other)
+        {
+            if (this == other)
+                return false;
+
+            return CollisionBox.Intersects(other.CollisionBox);
+        }
+
+        public virtual void OnCollision(GameObject other)
+        {
+
+        }
+
+        public void CheckCollision(GameObject other)
+        {
+            if (CollisionBox.Intersects(other.CollisionBox))
+            {
+                OnCollision(other);
+            }
+        }       
     }
 }
 

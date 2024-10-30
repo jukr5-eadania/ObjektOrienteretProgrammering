@@ -83,5 +83,10 @@ namespace OOP_D7
 
             position = new Vector2(GameWorld.Width / 2, GameWorld.Height);
         }
+
+        public override void OnCollision(GameObject other)
+        {
+            
+        }
     }
 }
