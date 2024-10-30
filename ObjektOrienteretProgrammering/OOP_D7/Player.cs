@@ -7,8 +7,10 @@ namespace OOP_D7
 {
     internal class Player : GameObject
     {
-        private float speed = 1000;
-        private Vector2 velocity;
+        public Player()
+        {
+            speed = 1000;
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -48,12 +50,6 @@ namespace OOP_D7
             {
                 velocity.Normalize();
             }
-        }
-
-        public void Move(GameTime gameTime)
-        {
-            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            position += ((velocity * speed) * deltaTime);
         }
 
         public void ScreenBounds()
