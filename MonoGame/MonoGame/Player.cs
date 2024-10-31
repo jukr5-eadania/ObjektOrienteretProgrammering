@@ -7,7 +7,8 @@ namespace MonoGame
 {
     internal class Player : GameObject
     {
-        Texture2D laserSprite;
+        private Texture2D laserSprite;
+        private float laserTime = 1;
 
         public Player()
         {
@@ -20,7 +21,8 @@ namespace MonoGame
             Move(gameTime);
             ScreenBounds();
             Animate(gameTime);
-            Shoot();
+
+            laserTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public void HandleInput()
@@ -52,6 +54,13 @@ namespace MonoGame
             if (velocity != Vector2.Zero)
             {
                 velocity.Normalize();
+            }
+
+            if (keystate.IsKeyDown(Keys.Space) && laserTime >= 0.5)
+            {
+                Laser firedLaser = new Laser(laserSprite, position);
+                GameWorld.InstatiateGameObject(firedLaser);
+                laserTime = 0;
             }
         }
 
@@ -92,17 +101,6 @@ namespace MonoGame
         public override void OnCollision(GameObject other)
         {
 
-        }
-
-        public void Shoot()
-        {
-            KeyboardState keystate = Keyboard.GetState();
-
-            if (keystate.IsKeyDown(Keys.Space))
-            {
-                Laser firedLaser = new Laser(laserSprite, position);
-                GameWorld.InstatiateGameObject(firedLaser);
-            }
         }
     }
 }
