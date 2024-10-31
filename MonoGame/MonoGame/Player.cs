@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -9,6 +10,7 @@ namespace MonoGame
     {
         private Texture2D laserSprite;
         private float laserTime = 1;
+        private SoundEffect laserSound;
 
         public Player()
         {
@@ -58,6 +60,7 @@ namespace MonoGame
 
             if (keystate.IsKeyDown(Keys.Space) && laserTime >= 0.5)
             {
+                laserSound.Play();
                 Laser firedLaser = new Laser(laserSprite, position);
                 GameWorld.InstatiateGameObject(firedLaser);
                 laserTime = 0;
@@ -96,6 +99,8 @@ namespace MonoGame
             position = new Vector2(GameWorld.Width / 2, GameWorld.Height);
 
             laserSprite = content.Load<Texture2D>("Sprites/Lasers/laserGreen11");
+
+            laserSound = content.Load<SoundEffect>("Sounds\\sfx_laser1");
         }
 
         public override void OnCollision(GameObject other)
