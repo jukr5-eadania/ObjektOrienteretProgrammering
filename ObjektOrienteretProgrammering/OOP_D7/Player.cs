@@ -7,6 +7,8 @@ namespace OOP_D7
 {
     internal class Player : GameObject
     {
+        Texture2D laserSprite;
+
         public Player()
         {
             speed = 1000;
@@ -18,6 +20,7 @@ namespace OOP_D7
             Move(gameTime);
             ScreenBounds();
             Animate(gameTime);
+            Shoot();
         }
 
         public void HandleInput()
@@ -82,11 +85,24 @@ namespace OOP_D7
             sprite = sprites[0];
 
             position = new Vector2(GameWorld.Width / 2, GameWorld.Height);
+
+            laserSprite = content.Load<Texture2D>("Sprites/Lasers/laserGreen11");
         }
 
         public override void OnCollision(GameObject other)
         {
-            
+
+        }
+
+        public void Shoot()
+        {
+            KeyboardState keystate = Keyboard.GetState();
+
+            if (keystate.IsKeyDown(Keys.Space))
+            {
+                Laser firedLaser = new Laser(laserSprite, position);
+                GameWorld.InstatiateGameObject(firedLaser);
+            }
         }
     }
 }

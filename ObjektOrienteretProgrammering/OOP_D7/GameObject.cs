@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace OOP_D7
 {
-    internal abstract class GameObject
+    public abstract class GameObject
     {
         protected Texture2D sprite;
         protected Texture2D[] sprites = new Texture2D[4];
@@ -21,8 +21,8 @@ namespace OOP_D7
                 return new Rectangle(
                     (int)(position.X - sprite.Width / 2),
                     (int)(position.Y - sprite.Height / 2),
-                    (int)sprite.Width,
-                    (int)sprite.Height
+                    sprite.Width,
+                    sprite.Height
                 );
             }
         }

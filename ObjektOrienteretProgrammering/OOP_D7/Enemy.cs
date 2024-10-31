@@ -46,7 +46,7 @@ namespace OOP_D7
 
         public override void OnCollision(GameObject other)
         {
-            if (other != this)
+            if (other != this && !(other is Enemy) && !(other is Background))
             {
                 position = new Vector2(rnd.Next(0, GameWorld.Width), -sprite.Height * 2);
             }

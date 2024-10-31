@@ -10,6 +10,8 @@ namespace OOP_D7
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private List<GameObject> gameObjects = new List<GameObject>();
+        private static List<GameObject> gameObjectsToAdd = new List<GameObject>();
+        private static List<GameObject> gameObjectsToRemove = new List<GameObject>();
         private Texture2D collisionTexture;
         public static int Height { get; set; }
         public static int Width { get; set; }
@@ -30,6 +32,13 @@ namespace OOP_D7
             gameObjects.Add(new Background(0));
             gameObjects.Add(new Background(1));
             gameObjects.Add(new Player());
+            gameObjects.Add(new Enemy());
+            gameObjects.Add(new Enemy());
+            gameObjects.Add(new Enemy());
+            gameObjects.Add(new Enemy());
+            gameObjects.Add(new Enemy());
+            gameObjects.Add(new Enemy());
+            gameObjects.Add(new Enemy());
             gameObjects.Add(new Enemy());
             base.Initialize();
         }
@@ -54,16 +63,24 @@ namespace OOP_D7
             foreach (GameObject gameObject in gameObjects)
             {
                 gameObject.Update(gameTime);
-            }
-
-            foreach (GameObject go in gameObjects)
-            {
-                go.Update(gameTime);
                 foreach (GameObject other in gameObjects)
                 {
-                    go.CheckCollision(other);
+                    gameObject.CheckCollision(other);
                 }
             }
+
+            foreach (GameObject gameObjectToSpawn in gameObjectsToAdd)
+            {
+                gameObjectToSpawn.LoadContent(Content);
+                gameObjects.Add(gameObjectToSpawn);
+            }
+            gameObjectsToAdd.Clear();
+
+            foreach (GameObject gameObjectToDespawn in gameObjectsToRemove)
+            {
+                gameObjects.Remove(gameObjectToDespawn);
+            }
+            gameObjectsToRemove.Clear();
 
             base.Update(gameTime);
         }
@@ -77,16 +94,11 @@ namespace OOP_D7
             foreach (GameObject gameObject in gameObjects)
             {
                 gameObject.Draw(_spriteBatch);
-            }
 
-            foreach (GameObject go in gameObjects)
-            {
-                go.Draw(_spriteBatch);
 #if DEBUG
-                if (!(go is Background))
+                if (!(gameObject is Background))
                 {
-
-                    DrawCollisionBox(go);
+                    DrawCollisionBox(gameObject);
                 }
 #endif
             }
@@ -96,9 +108,9 @@ namespace OOP_D7
             base.Draw(gameTime);
         }
 
-        private void DrawCollisionBox(GameObject go)
+        private void DrawCollisionBox(GameObject gameObject)
         {
-            Rectangle collisionBox = go.CollisionBox;
+            Rectangle collisionBox = gameObject.CollisionBox;
             Rectangle topLine = new Rectangle(collisionBox.X, collisionBox.Y, collisionBox.Width, 1);
             Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
             Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
@@ -108,6 +120,16 @@ namespace OOP_D7
             _spriteBatch.Draw(collisionTexture, bottomLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
             _spriteBatch.Draw(collisionTexture, rightLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
             _spriteBatch.Draw(collisionTexture, leftLine, null, Color.Red, 0, Vector2.Zero, SpriteEffects.None, 1);
+        }
+
+        public static void InstatiateGameObject(GameObject gameObject)
+        {
+            gameObjectsToAdd.Add(gameObject);
+        }
+
+        public static void RemoveGameObject(GameObject gameObject)
+        {
+            gameObjectsToRemove.Add(gameObject);
         }
     }
 }
