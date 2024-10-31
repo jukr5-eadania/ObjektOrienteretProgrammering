@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace OOP_D7
+namespace MonoGame
 {
     public abstract class GameObject
     {

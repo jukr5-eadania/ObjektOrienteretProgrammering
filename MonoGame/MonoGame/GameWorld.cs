@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 
-namespace OOP_D7
+namespace MonoGame
 {
     public class GameWorld : Game
     {
@@ -52,7 +52,7 @@ namespace OOP_D7
                 gameObject.LoadContent(Content);
             }
 
-            collisionTexture = Content.Load<Texture2D>("CollisionTexture");
+            collisionTexture = Content.Load<Texture2D>("Sprites\\CollisionTexture");
         }
 
         protected override void Update(GameTime gameTime)

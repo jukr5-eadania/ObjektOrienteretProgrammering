@@ -61,17 +61,11 @@
 /processorParam:TextureFormat=Color
 /build:Backgrounds/purple.png
 
-#begin CollisionTexture.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:CollisionTexture.png
+#begin Sounds/Music/Having Fallen It Was Blood.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sounds/Music/Having Fallen It Was Blood.ogg
 
 #begin Sounds/sfx_laser1.ogg
 /importer:OggImporter
@@ -162,6 +156,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/purple.png
+
+#begin Sprites/CollisionTexture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/CollisionTexture.png
 
 #begin Sprites/Damage/playerShip1_damage1.png
 /importer:TextureImporter

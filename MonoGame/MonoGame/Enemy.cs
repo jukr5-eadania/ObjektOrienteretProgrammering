@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace OOP_D7
+namespace MonoGame
 {
     internal class Enemy : GameObject
     {
