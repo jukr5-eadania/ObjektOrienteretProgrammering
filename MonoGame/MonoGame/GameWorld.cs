@@ -99,7 +99,7 @@ namespace MonoGame
                 gameObject.Draw(_spriteBatch);
 
 #if DEBUG
-                if (!(gameObject is Background))
+                if (!(gameObject is Background) && !(gameObject is Explosion))
                 {
                     DrawCollisionBox(gameObject);
                 }
