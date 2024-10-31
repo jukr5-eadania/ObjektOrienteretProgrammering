@@ -8,6 +8,7 @@ namespace OOP_D7
     internal class Player : GameObject
     {
         Texture2D laserSprite;
+        float laserTime = 1;
 
         public Player()
         {
@@ -20,7 +21,8 @@ namespace OOP_D7
             Move(gameTime);
             ScreenBounds();
             Animate(gameTime);
-            Shoot();
+
+            laserTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
 
         public void HandleInput()
@@ -52,6 +54,13 @@ namespace OOP_D7
             if (velocity != Vector2.Zero)
             {
                 velocity.Normalize();
+            }
+
+            if (keystate.IsKeyDown(Keys.Space) && laserTime >= 0.5)
+            {
+                Laser firedLaser = new Laser(laserSprite, position);
+                GameWorld.InstatiateGameObject(firedLaser);
+                laserTime = 0;
             }
         }
 
@@ -92,17 +101,6 @@ namespace OOP_D7
         public override void OnCollision(GameObject other)
         {
 
-        }
-
-        public void Shoot()
-        {
-            KeyboardState keystate = Keyboard.GetState();
-
-            if (keystate.IsKeyDown(Keys.Space))
-            {
-                Laser firedLaser = new Laser(laserSprite, position);
-                GameWorld.InstatiateGameObject(firedLaser);
-            }
         }
     }
 }
