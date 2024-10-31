@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 
 namespace MonoGame
@@ -13,6 +14,7 @@ namespace MonoGame
         private static List<GameObject> gameObjectsToAdd = new List<GameObject>();
         private static List<GameObject> gameObjectsToRemove = new List<GameObject>();
         private Texture2D collisionTexture;
+        private Song backgroundMusic;
         public static int Height { get; set; }
         public static int Width { get; set; }
 
@@ -45,6 +47,10 @@ namespace MonoGame
 
         protected override void LoadContent()
         {
+            backgroundMusic = Content.Load<Song>("Sounds\\Music\\Having Fallen It Was Blood");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             foreach (GameObject gameObject in gameObjects)
