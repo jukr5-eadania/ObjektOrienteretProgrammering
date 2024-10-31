@@ -61,6 +61,12 @@
 /processorParam:TextureFormat=Color
 /build:Backgrounds/purple.png
 
+#begin Sounds/Explosion.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/Explosion.ogg
+
 #begin Sounds/Music/Having Fallen It Was Blood.ogg
 /importer:OggImporter
 /processor:SongProcessor

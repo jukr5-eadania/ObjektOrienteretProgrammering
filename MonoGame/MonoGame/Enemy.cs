@@ -38,17 +38,15 @@ namespace MonoGame
         {
             if (position.Y > GameWorld.Height + sprite.Height)
             {
-                speed = rnd.Next(150, 251);
-                position = new Vector2(rnd.Next(0, GameWorld.Width), -sprite.Height * 2);
-                sprite = sprites[rnd.Next(0, sprites.Length)];
+                GameWorld.RemoveGameObject(this);
             }
         }
 
         public override void OnCollision(GameObject other)
         {
-            if (other != this && !(other is Enemy) && !(other is Background))
+            if ((other is Player))
             {
-                position = new Vector2(rnd.Next(0, GameWorld.Width), -sprite.Height * 2);
+                //Kill Player
             }
         }
     }

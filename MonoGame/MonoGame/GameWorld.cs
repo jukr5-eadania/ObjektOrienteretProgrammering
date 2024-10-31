@@ -15,6 +15,7 @@ namespace MonoGame
         private static List<GameObject> gameObjectsToRemove = new List<GameObject>();
         private Texture2D collisionTexture;
         private Song backgroundMusic;
+        private float spawnTimer;
         public static int Height { get; set; }
         public static int Width { get; set; }
 
@@ -34,14 +35,6 @@ namespace MonoGame
             gameObjects.Add(new Background(0));
             gameObjects.Add(new Background(1));
             gameObjects.Add(new Player());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
-            gameObjects.Add(new Enemy());
             base.Initialize();
         }
 
@@ -87,6 +80,10 @@ namespace MonoGame
                 gameObjects.Remove(gameObjectToDespawn);
             }
             gameObjectsToRemove.Clear();
+
+            spawnTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            SpawnEnemy();
 
             base.Update(gameTime);
         }
@@ -136,6 +133,16 @@ namespace MonoGame
         public static void RemoveGameObject(GameObject gameObject)
         {
             gameObjectsToRemove.Add(gameObject);
+        }
+
+        public void SpawnEnemy()
+        {
+            if (spawnTimer >= 3)
+            {
+                Enemy enemy = new Enemy();
+                InstatiateGameObject(enemy);
+                spawnTimer = 0;
+            }
         }
     }
 }

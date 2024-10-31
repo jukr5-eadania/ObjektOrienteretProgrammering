@@ -36,7 +36,7 @@ namespace MonoGame
             spritebatch.Draw(sprite, position, null, Color.White, 0, new Vector2(sprite.Width / 2, sprite.Height / 2), 1, SpriteEffects.None, 1);
         }
 
-        protected void Animate(GameTime gameTime)
+        protected virtual void Animate(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
