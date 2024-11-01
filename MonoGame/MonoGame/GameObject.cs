@@ -57,18 +57,7 @@ namespace MonoGame
             position += ((velocity * speed) * deltaTime);
         }
 
-        public bool IsColliding(GameObject other)
-        {
-            if (this == other)
-                return false;
-
-            return CollisionBox.Intersects(other.CollisionBox);
-        }
-
-        public virtual void OnCollision(GameObject other)
-        {
-
-        }
+        public abstract void OnCollision(GameObject other);
 
         public void CheckCollision(GameObject other)
         {

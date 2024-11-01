@@ -39,5 +39,10 @@ namespace MonoGame
             Move(gameTime);
             Respawn();
         }
+
+        public override void OnCollision(GameObject other)
+        {
+            
+        }
     }
 }

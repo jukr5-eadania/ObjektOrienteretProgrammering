@@ -35,6 +35,11 @@ namespace MonoGame
             sprite = sprites[0];
         }
 
+        public override void OnCollision(GameObject other)
+        {
+            
+        }
+
         public override void Update(GameTime gameTime)
         {
             Animate(gameTime);
