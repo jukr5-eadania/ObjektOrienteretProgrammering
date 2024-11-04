@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 
-namespace OOP_D6_Fixed
+namespace OOP_D6
 {
     public class GameWorld : Game
     {

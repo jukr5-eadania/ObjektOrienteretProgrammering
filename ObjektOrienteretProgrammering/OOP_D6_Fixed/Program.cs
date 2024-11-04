@@ -1,3 +1,3 @@
 ﻿
-using var game = new OOP_D6_Fixed.GameWorld();
+using var game = new OOP_D6.GameWorld();
 game.Run();
